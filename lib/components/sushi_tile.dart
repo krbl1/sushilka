@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sush_roys/models/sushi.dart';
 
-import '../models/rolls.dart';
+import '../models/foods.dart';
 
 class SushiTile extends StatelessWidget {
-  final Sushi food;
+  final Food food;
   final void Function()? onTap;
 
   const SushiTile({

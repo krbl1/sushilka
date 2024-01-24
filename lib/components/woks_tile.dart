@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sush_roys/models/sushi.dart';
 import 'package:sush_roys/models/woks.dart';
 
-import '../models/rolls.dart';
+import '../models/foods.dart';
 
 class WoksTile extends StatelessWidget {
-  final Woks food;
+  final Food food;
   final void Function()? onTap;
 
   const WoksTile({

@@ -3,7 +3,7 @@ import 'package:sush_roys/components/rols_tile.dart';
 import 'package:sush_roys/components/sushi_tile.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
 import 'package:sush_roys/foods/sushis/sushi_details.dart';
-import 'package:sush_roys/models/rolls.dart';
+import 'package:sush_roys/models/foods.dart';
 import 'package:sush_roys/models/sushi.dart';
 import 'package:sush_roys/nav.dart';
 // import 'roll_details.dart';
@@ -23,7 +23,7 @@ class _SushiPageState extends State<SushiPage> {
         context,
         MaterialPageRoute(
             builder: (context) => SushiDetails(
-                  food: sushiMenu[index],
+                  food: foodsMenu[index],
                 )));
   }
 
@@ -41,10 +41,10 @@ class _SushiPageState extends State<SushiPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: sushiMenu.length,
+        itemCount: foodsMenu.length,
         itemBuilder: (BuildContext context, int index) {
           return SushiTile(
-            food: sushiMenu[index],
+            food: foodsMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },

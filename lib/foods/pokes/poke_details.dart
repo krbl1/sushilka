@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sush_roys/models/pokes.dart';
 
-import '../../models/rolls.dart';
+import '../../models/foods.dart';
 
 class PokeDetail extends StatefulWidget {
-  final Pokes food;
+  final Food food;
 
   const PokeDetail({super.key, required this.food});
 

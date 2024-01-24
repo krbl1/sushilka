@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../models/rolls.dart';
+import '../models/foods.dart';
 
 class RollTile extends StatelessWidget {
-  final Rolls food;
+  final Food food;
   final void Function()? onTap;
 
   const RollTile({

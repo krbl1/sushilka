@@ -3,7 +3,7 @@ import 'package:sush_roys/components/rols_tile.dart';
 import 'package:sush_roys/components/sets_tiles.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
 import 'package:sush_roys/foods/sets/set_details.dart';
-import 'package:sush_roys/models/rolls.dart';
+import 'package:sush_roys/models/foods.dart';
 import 'package:sush_roys/models/sets.dart';
 import 'package:sush_roys/nav.dart';
 // import 'roll_details.dart';
@@ -23,7 +23,7 @@ class _SetsPageState extends State<SetsPage> {
         context,
         MaterialPageRoute(
             builder: (context) => SetsDetail(
-                  food: setsMenu[index],
+                  food: foodsMenu[index],
                 )));
   }
 
@@ -41,47 +41,10 @@ class _SetsPageState extends State<SetsPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: setsMenu.length,
+        itemCount: foodsMenu.length,
         itemBuilder: (BuildContext context, int index) {
-          // return Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          //   child: GestureDetector(
-          //     onTap: () {
-          //       print('menu');
-          //     },
-          //     child: Container(
-          //         height: 150,
-          //         child: Row(
-          //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //             // crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Image.network(
-          //                 'https://edakotlas.ru/images/detailed/1/slivochnaya_california.jpg',
-          //                 height: 150,
-          //                 width: 150,
-          //               ),
-          //               SizedBox(
-          //                 width: 20,
-          //               ),
-          //               Column(
-          //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //                 children: [
-          //                   Text(
-          //                     'Ролл Калифорния $index',
-          //                     style:
-          //                         TextStyle(fontFamily: 'Verse', fontSize: 15),
-          //                   ),
-          //                   IconButton(
-          //                       onPressed: () {},
-          //                       icon: const Icon(Icons.shopping_cart_outlined)),
-          //                   Text('400 г  8 шт'),
-          //                 ],
-          //               ),
-          //             ])),
-          //   ),
-          // );
           return SetsTile(
-            food: setsMenu[index],
+            food: foodsMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },

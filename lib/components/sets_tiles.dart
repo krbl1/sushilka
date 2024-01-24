@@ -3,10 +3,10 @@ import 'package:sush_roys/models/pokes.dart';
 import 'package:sush_roys/models/sets.dart';
 import 'package:sush_roys/models/sushi.dart';
 
-import '../models/rolls.dart';
+import '../models/foods.dart';
 
 class SetsTile extends StatelessWidget {
-  final Sets food;
+  final Food food;
   final void Function()? onTap;
 
   const SetsTile({

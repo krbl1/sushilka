@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../models/rolls.dart';
+import '../../models/foods.dart';
 
 class FoodDetail extends StatefulWidget {
-  final Rolls food;
+  final Food food;
 
   const FoodDetail({super.key, required this.food});
 

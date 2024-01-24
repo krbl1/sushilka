@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sush_roys/models/drinks.dart';
 
-import '../../models/rolls.dart';
+import '../../models/foods.dart';
 
 class DrinkDetail extends StatefulWidget {
-  final Drinks food;
+  final Food food;
 
   const DrinkDetail({super.key, required this.food});
 

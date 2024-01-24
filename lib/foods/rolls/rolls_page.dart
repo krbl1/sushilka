@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sush_roys/components/rols_tile.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
-import 'package:sush_roys/models/rolls.dart';
+import 'package:sush_roys/models/foods.dart';
 import 'package:sush_roys/nav.dart';
 import 'roll_details.dart';
 
@@ -20,7 +20,7 @@ class _RollsPageState extends State<RollsPage> {
         context,
         MaterialPageRoute(
             builder: (context) => FoodDetail(
-                  food: rollsMenu[index],
+                  food: foodsMenu[index],
                 )));
   }
 
@@ -38,7 +38,7 @@ class _RollsPageState extends State<RollsPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: rollsMenu.length,
+        itemCount: foodsMenu.length,
         itemBuilder: (BuildContext context, int index) {
           // return Padding(
           //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -78,7 +78,7 @@ class _RollsPageState extends State<RollsPage> {
           //   ),
           // );
           return RollTile(
-            food: rollsMenu[index],
+            food: foodsMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },

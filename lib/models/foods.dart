@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-class Rolls {
+class Food {
+  String category;
   String name;
   double price;
   double weight;
@@ -8,7 +9,8 @@ class Rolls {
   String description;
   String imagePath;
 
-  Rolls({
+  Food({
+    required this.category,
     required this.name,
     required this.price,
     required this.weight,
@@ -17,6 +19,7 @@ class Rolls {
     required this.imagePath,
   });
 
+  String get _category => category;
   String get _name => name;
   double get _price => price;
   double get _weight => weight;
@@ -25,8 +28,9 @@ class Rolls {
   String get _imagePath => imagePath;
 }
 
-List rollsMenu = [
-  Rolls(
+List foodsMenu = [
+  Food(
+      category: 'Ролл',
       name: 'Филадельфия',
       price: 350,
       weight: 400,
@@ -35,7 +39,8 @@ List rollsMenu = [
           'Вкуснейшие роллы со свежайшим лососем, приготовленные по старинному рецепту Йоши Накомуро',
       imagePath:
           'https://foodband.ru/wp-content/uploads/2016/09/1466-original-1692290368.jpg'),
-  Rolls(
+  Food(
+      category: 'Сет',
       name: 'Сет Кукан',
       price: 1500,
       weight: 2000,
@@ -43,5 +48,32 @@ List rollsMenu = [
       description:
           'Сет на большую компанию. Приготовллен с огоньком, так что берегите свой кукан. Состав: Ролл Кривой, Ролл Сырой, Ролл Вкусный, Ролл Калифорния',
       imagePath:
-          'https://thapl-public.storage.yandexcloud.net/thapl-project415/img/CatalogItem/4537fcf43ba98a245502b8ce4f45eb54_thumb_50_1458_1458.jpg')
+          'https://thapl-public.storage.yandexcloud.net/thapl-project415/img/CatalogItem/4537fcf43ba98a245502b8ce4f45eb54_thumb_50_1458_1458.jpg'),
+  Food(
+      category: 'Напитки',
+      name: 'Яблочный сок',
+      price: 100,
+      weight: 1000,
+      quontity: 1,
+      description: 'Свежевыжитый яблочный сок',
+      imagePath:
+          'https://static.tildacdn.com/tild3563-3564-4134-b031-386463356537/photo.jpg'),
+  Food(
+      category: 'Напитки',
+      name: 'Кола',
+      price: 200,
+      weight: 400,
+      quontity: 1,
+      description: 'Добрый Кола',
+      imagePath:
+          'https://static.tildacdn.com/stor6265-3635-4137-b637-633936663833/48356279.png'),
+  Food(
+      category: 'Напитки',
+      name: 'Фанта',
+      price: 200,
+      weight: 400,
+      quontity: 1,
+      description: 'Добрый Апельсин',
+      imagePath:
+          'https://vendliga.ru/upload/resize_cache/iblock/f91/1200_1200_140cd750bba9870f18aada2478b24840a/pdzny56pcu2waz0v5fm300530c2hwxmu.png')
 ];

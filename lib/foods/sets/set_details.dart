@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sush_roys/models/sets.dart';
 
-import '../../models/rolls.dart';
+import '../../models/foods.dart';
 
 class SetsDetail extends StatefulWidget {
-  final Sets food;
+  final Food food;
 
   const SetsDetail({super.key, required this.food});
 
