@@ -3,9 +3,7 @@ import 'package:sush_roys/components/pokes_liles.dart';
 import 'package:sush_roys/components/rols_tile.dart';
 import 'package:sush_roys/foods/pokes/poke_details.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
-import 'package:sush_roys/models/pokes.dart';
 import 'package:sush_roys/models/foods.dart';
-import 'package:sush_roys/models/woks.dart';
 import 'package:sush_roys/nav.dart';
 // import 'roll_details.dart';
 
@@ -19,12 +17,14 @@ class PokesPage extends StatefulWidget {
 }
 
 class _PokesPageState extends State<PokesPage> {
+  List pokesMenu = foodsMenu.where((food) => food.category == 'Поке').toList();
+
   void navigateToDetails(int index) {
     Navigator.push(
         context,
         MaterialPageRoute(
             builder: (context) => PokeDetail(
-                  food: foodsMenu[index],
+                  food: pokesMenu[index],
                 )));
   }
 
@@ -42,10 +42,10 @@ class _PokesPageState extends State<PokesPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: foodsMenu.length,
+        itemCount: pokesMenu.length,
         itemBuilder: (BuildContext context, int index) {
           return PokesTile(
-            food: foodsMenu[index],
+            food: pokesMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },

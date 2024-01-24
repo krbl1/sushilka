@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sush_roys/models/sushi.dart';
-import 'package:sush_roys/models/woks.dart';
 
 import '../models/foods.dart';
 

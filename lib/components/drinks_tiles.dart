@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sush_roys/models/drinks.dart';
-import 'package:sush_roys/models/pokes.dart';
-import 'package:sush_roys/models/sushi.dart';
 
 import '../models/foods.dart';
 

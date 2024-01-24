@@ -30,7 +30,7 @@ class Food {
 
 List foodsMenu = [
   Food(
-      category: 'Ролл',
+      category: 'Роллы',
       name: 'Филадельфия',
       price: 350,
       weight: 400,
@@ -40,7 +40,7 @@ List foodsMenu = [
       imagePath:
           'https://foodband.ru/wp-content/uploads/2016/09/1466-original-1692290368.jpg'),
   Food(
-      category: 'Сет',
+      category: 'Сеты',
       name: 'Сет Кукан',
       price: 1500,
       weight: 2000,
@@ -75,5 +75,25 @@ List foodsMenu = [
       quontity: 1,
       description: 'Добрый Апельсин',
       imagePath:
-          'https://vendliga.ru/upload/resize_cache/iblock/f91/1200_1200_140cd750bba9870f18aada2478b24840a/pdzny56pcu2waz0v5fm300530c2hwxmu.png')
+          'https://vendliga.ru/upload/resize_cache/iblock/f91/1200_1200_140cd750bba9870f18aada2478b24840a/pdzny56pcu2waz0v5fm300530c2hwxmu.png'),
+  Food(
+      category: 'Суши',
+      name: 'Суши с тунцом',
+      price: 350,
+      weight: 400,
+      quontity: 8,
+      description:
+          'Вкуснейшие суши со свежайшим тунцом, приготовленные по старинному рецепту Йоши Накомуро',
+      imagePath:
+          'https://avatars.mds.yandex.net/get-sprav-products/9685839/2a000001892088048648468f5f99c8d375cd/M_height'),
+  Food(
+      category: 'Суши',
+      name: 'Суши с лососем',
+      price: 350,
+      weight: 200,
+      quontity: 4,
+      description:
+          'Традиционные суши со свежим лососем. Попробовав однажды эти суши, вы познаёте дзэн. Данными суши можно дополнить большой сет.',
+      imagePath:
+          'https://static.tildacdn.com/tild3861-3032-4732-a637-616535356364/SUSHI-S-LOSOSEM1.png'),
 ];

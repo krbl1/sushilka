@@ -4,7 +4,6 @@ import 'package:sush_roys/components/woks_tile.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
 import 'package:sush_roys/foods/woks/wok_details.dart';
 import 'package:sush_roys/models/foods.dart';
-import 'package:sush_roys/models/woks.dart';
 import 'package:sush_roys/nav.dart';
 // import 'roll_details.dart';
 
@@ -18,12 +17,14 @@ class WoksPage extends StatefulWidget {
 }
 
 class _WoksPageState extends State<WoksPage> {
+  List woksMenu = foodsMenu.where((food) => food.category == 'Вок').toList();
+
   void navigateToDetails(int index) {
     Navigator.push(
         context,
         MaterialPageRoute(
             builder: (context) => WokDetail(
-                  food: foodsMenu[index],
+                  food: woksMenu[index],
                 )));
   }
 
@@ -41,10 +42,10 @@ class _WoksPageState extends State<WoksPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: foodsMenu.length,
+        itemCount: woksMenu.length,
         itemBuilder: (BuildContext context, int index) {
           return WoksTile(
-            food: foodsMenu[index],
+            food: woksMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },

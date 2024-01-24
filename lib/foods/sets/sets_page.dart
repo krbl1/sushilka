@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sush_roys/components/rols_tile.dart';
-import 'package:sush_roys/components/sets_tiles.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
-import 'package:sush_roys/foods/sets/set_details.dart';
 import 'package:sush_roys/models/foods.dart';
-import 'package:sush_roys/models/sets.dart';
 import 'package:sush_roys/nav.dart';
-// import 'roll_details.dart';
 
 import '../../theme/app_bar_theme.dart';
 
@@ -18,12 +14,14 @@ class SetsPage extends StatefulWidget {
 }
 
 class _SetsPageState extends State<SetsPage> {
+  List setsMenu = foodsMenu.where((food) => food.category == 'Сеты').toList();
+
   void navigateToDetails(int index) {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => SetsDetail(
-                  food: foodsMenu[index],
+            builder: (context) => FoodDetail(
+                  food: setsMenu[index],
                 )));
   }
 
@@ -41,10 +39,10 @@ class _SetsPageState extends State<SetsPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: foodsMenu.length,
+        itemCount: setsMenu.length,
         itemBuilder: (BuildContext context, int index) {
-          return SetsTile(
-            food: foodsMenu[index],
+          return RollTile(
+            food: setsMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },

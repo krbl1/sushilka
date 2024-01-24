@@ -3,7 +3,6 @@ import 'package:sush_roys/components/drinks_tiles.dart';
 import 'package:sush_roys/components/rols_tile.dart';
 import 'package:sush_roys/foods/drinks/drink_details.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
-import 'package:sush_roys/models/drinks.dart';
 import 'package:sush_roys/models/foods.dart';
 import 'package:sush_roys/nav.dart';
 // import 'roll_details.dart';
@@ -18,12 +17,15 @@ class DrinksPage extends StatefulWidget {
 }
 
 class _DrinksPageState extends State<DrinksPage> {
+  List drinksMenu =
+      foodsMenu.where((food) => food.category == 'Напитки').toList();
+
   void navigateToDetails(int index) {
     Navigator.push(
         context,
         MaterialPageRoute(
             builder: (context) => DrinkDetail(
-                  food: foodsMenu[index],
+                  food: drinksMenu[index],
                 )));
   }
 
@@ -41,10 +43,10 @@ class _DrinksPageState extends State<DrinksPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: foodsMenu.length,
+        itemCount: drinksMenu.length,
         itemBuilder: (BuildContext context, int index) {
           return DrinksTile(
-            food: foodsMenu[index],
+            food: drinksMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },

@@ -15,12 +15,14 @@ class RollsPage extends StatefulWidget {
 }
 
 class _RollsPageState extends State<RollsPage> {
+  List rollsMenu = foodsMenu.where((food) => food.category == 'Роллы').toList();
+
   void navigateToDetails(int index) {
     Navigator.push(
         context,
         MaterialPageRoute(
             builder: (context) => FoodDetail(
-                  food: foodsMenu[index],
+                  food: rollsMenu[index],
                 )));
   }
 
@@ -38,47 +40,10 @@ class _RollsPageState extends State<RollsPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: foodsMenu.length,
+        itemCount: rollsMenu.length,
         itemBuilder: (BuildContext context, int index) {
-          // return Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          //   child: GestureDetector(
-          //     onTap: () {
-          //       print('menu');
-          //     },
-          //     child: Container(
-          //         height: 150,
-          //         child: Row(
-          //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //             // crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Image.network(
-          //                 'https://edakotlas.ru/images/detailed/1/slivochnaya_california.jpg',
-          //                 height: 150,
-          //                 width: 150,
-          //               ),
-          //               SizedBox(
-          //                 width: 20,
-          //               ),
-          //               Column(
-          //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //                 children: [
-          //                   Text(
-          //                     'Ролл Калифорния $index',
-          //                     style:
-          //                         TextStyle(fontFamily: 'Verse', fontSize: 15),
-          //                   ),
-          //                   IconButton(
-          //                       onPressed: () {},
-          //                       icon: const Icon(Icons.shopping_cart_outlined)),
-          //                   Text('400 г  8 шт'),
-          //                 ],
-          //               ),
-          //             ])),
-          //   ),
-          // );
           return RollTile(
-            food: foodsMenu[index],
+            food: rollsMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sush_roys/components/rols_tile.dart';
-import 'package:sush_roys/components/sushi_tile.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
-import 'package:sush_roys/foods/sushis/sushi_details.dart';
 import 'package:sush_roys/models/foods.dart';
-import 'package:sush_roys/models/sushi.dart';
 import 'package:sush_roys/nav.dart';
 // import 'roll_details.dart';
 
@@ -18,12 +15,15 @@ class SushiPage extends StatefulWidget {
 }
 
 class _SushiPageState extends State<SushiPage> {
+  List sushiesMenu =
+      foodsMenu.where((food) => food.category == 'Суши').toList();
+
   void navigateToDetails(int index) {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => SushiDetails(
-                  food: foodsMenu[index],
+            builder: (context) => FoodDetail(
+                  food: sushiesMenu[index],
                 )));
   }
 
@@ -41,10 +41,10 @@ class _SushiPageState extends State<SushiPage> {
         ],
       ),
       body: ListView.separated(
-        itemCount: foodsMenu.length,
+        itemCount: sushiesMenu.length,
         itemBuilder: (BuildContext context, int index) {
-          return SushiTile(
-            food: foodsMenu[index],
+          return RollTile(
+            food: sushiesMenu[index],
             onTap: () => navigateToDetails(index),
           );
         },
