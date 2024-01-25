@@ -27,7 +27,15 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: appBarColor,
         actions: [
-          appBarActionsButton,
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/cart');
+              },
+              icon: const Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.black,
+                size: 30,
+              )),
         ],
       ),
       // backgroundColor: Colors.pink[50],

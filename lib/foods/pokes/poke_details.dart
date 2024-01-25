@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../models/foods.dart';
+import '../../models/shop.dart';
 
 class PokeDetail extends StatefulWidget {
   final Food food;
@@ -12,7 +14,7 @@ class PokeDetail extends StatefulWidget {
 }
 
 class _PokeDetailState extends State<PokeDetail> {
-  int quontityCount = 0;
+  int quontityCount = 1;
 
   void decrementQuontity() {
     setState(() {
@@ -26,6 +28,32 @@ class _PokeDetailState extends State<PokeDetail> {
     setState(() {
       quontityCount++;
     });
+  }
+
+  void addToCart() {
+    if (quontityCount > 0) {
+      final shop = context.read<Shop>();
+      shop.addToCart(widget.food, quontityCount);
+
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => AlertDialog(
+          content: const Text(
+            'Успешно добавлено',
+            textAlign: TextAlign.center,
+          ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.done)),
+          ],
+        ),
+      );
+    }
   }
 
   @override
@@ -153,20 +181,18 @@ class _PokeDetailState extends State<PokeDetail> {
                     height: 10,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: addToCart,
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.yellow,
                           borderRadius: BorderRadius.circular(40)),
-                      padding: EdgeInsets.all(5),
+                      padding: EdgeInsets.all(15),
                       child: Row(
                           // crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text('В корзину'),
-                            IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.chevron_right_sharp)),
+                            Icon(Icons.chevron_right_sharp),
                           ]),
                     ),
                   ),

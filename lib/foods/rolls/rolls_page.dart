@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sush_roys/components/rols_tile.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
-import 'package:sush_roys/models/foods.dart';
+import 'package:sush_roys/models/shop.dart';
 import 'package:sush_roys/nav.dart';
 import 'roll_details.dart';
 
@@ -15,9 +16,11 @@ class RollsPage extends StatefulWidget {
 }
 
 class _RollsPageState extends State<RollsPage> {
-  List rollsMenu = foodsMenu.where((food) => food.category == 'Роллы').toList();
-
   void navigateToDetails(int index) {
+    final shop = context.read<Shop>();
+    final rollsMenu =
+        shop.foodsMenu.where((food) => food.category == 'Роллы').toList();
+
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -28,6 +31,10 @@ class _RollsPageState extends State<RollsPage> {
 
   @override
   Widget build(BuildContext context) {
+    final shop = context.read<Shop>();
+    final rollsMenu =
+        shop.foodsMenu.where((food) => food.category == 'Роллы').toList();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -36,7 +43,15 @@ class _RollsPageState extends State<RollsPage> {
         ),
         backgroundColor: appBarColor,
         actions: [
-          appBarActionsButton,
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/cart');
+              },
+              icon: const Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.black,
+                size: 30,
+              )),
         ],
       ),
       body: ListView.separated(

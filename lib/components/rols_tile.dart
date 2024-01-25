@@ -40,7 +40,7 @@ class RollTile extends StatelessWidget {
                         style: TextStyle(fontFamily: 'Verse', fontSize: 15),
                       ),
                       IconButton(
-                          onPressed: () {},
+                          onPressed: onTap,
                           icon: const Icon(Icons.shopping_cart_outlined)),
                       Text('${food.weight.toInt()} г  ${food.quontity} шт'),
                     ],
