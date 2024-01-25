@@ -161,7 +161,8 @@ class _HomePageState extends State<HomePage> {
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                   enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20))),
+                      borderRadius: BorderRadius.circular(20)),
+                  hintText: 'Найдите здесь...'),
             ),
           ),
           const SizedBox(

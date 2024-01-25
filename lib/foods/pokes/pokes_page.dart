@@ -3,6 +3,7 @@ import 'package:sush_roys/components/pokes_liles.dart';
 import 'package:sush_roys/components/rols_tile.dart';
 import 'package:sush_roys/foods/pokes/poke_details.dart';
 import 'package:sush_roys/foods/rolls/roll_details.dart';
+import 'package:sush_roys/foods/woks/wok_details.dart';
 import 'package:sush_roys/models/foods.dart';
 import 'package:sush_roys/nav.dart';
 // import 'roll_details.dart';
@@ -23,7 +24,7 @@ class _PokesPageState extends State<PokesPage> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => PokeDetail(
+            builder: (context) => WokDetail(
                   food: pokesMenu[index],
                 )));
   }
