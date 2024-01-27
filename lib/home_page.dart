@@ -1,12 +1,5 @@
-import 'dart:async';
-
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:sush_roys/menu_page.dart';
 import 'package:sush_roys/nav.dart';
-// import 'internet_dialog.dart';
 import 'theme/app_bar_theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,21 +14,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Sushilka',
           style: appBarTitle,
         ),
         backgroundColor: appBarColor,
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/cart');
-              },
-              icon: const Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.black,
-                size: 30,
-              )),
+              onPressed: () => Navigator.of(context).pushNamed('/cart'),
+              icon: const Icon(Icons.shopping_cart)),
         ],
       ),
       // backgroundColor: Colors.pink[50],
@@ -51,9 +38,53 @@ class _HomePageState extends State<HomePage> {
             height: 140.0, // y
             child: ListView(scrollDirection: Axis.horizontal, children: [
               GestureDetector(
-                onTap: () {
-                  print('menu');
-                },
+                onTap: () => Navigator.of(context).pushNamed('/menu'),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.amber[50],
+                      borderRadius: BorderRadius.circular(20)),
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  padding: const EdgeInsets.all(15),
+                  // child: Text('data'),
+
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Column(
+                        // crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            '-10% на первый заказ',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontFamily: "Verse"),
+                          ),
+                          Row(
+                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              // mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text('Перейти'),
+                                Icon(Icons.chevron_right_sharp),
+                              ]),
+                        ],
+                      ),
+                      const SizedBox(width: 50),
+                      Image.asset(
+                        'assets/promo2.png',
+                        height: 120,
+                        width: 120,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.amber[50],
@@ -73,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             'Зарегистрируйся \nи получи скидку 33%',
                             style: TextStyle(
                                 color: Colors.black,
@@ -87,66 +118,17 @@ class _HomePageState extends State<HomePage> {
                               // crossAxisAlignment: CrossAxisAlignment.start,
                               // mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Text('Перейти'),
+                                const Text('Перейти'),
                                 IconButton(
                                     onPressed: () {},
-                                    icon: Icon(Icons.chevron_right_sharp)),
+                                    icon:
+                                        const Icon(Icons.chevron_right_sharp)),
                               ]),
                         ],
                       ),
-                      SizedBox(width: 50),
+                      const SizedBox(width: 50),
                       Image.asset(
                         'assets/promo.png',
-                        height: 120,
-                        width: 120,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  print('menu');
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.amber[50],
-                      borderRadius: BorderRadius.circular(20)),
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  padding: const EdgeInsets.all(15),
-                  // child: Text('data'),
-
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(
-                            '-10% на первый заказ',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontFamily: "Verse"),
-                          ),
-                          Row(
-                              // crossAxisAlignment: CrossAxisAlignment.start,
-                              // mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text('Перейти'),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(Icons.chevron_right_sharp)),
-                              ]),
-                        ],
-                      ),
-                      SizedBox(width: 50),
-                      Image.asset(
-                        'assets/promo2.png',
                         height: 120,
                         width: 120,
                       )
@@ -165,7 +147,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: TextField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                   enabledBorder: OutlineInputBorder(

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class NavBar extends StatelessWidget {
-  checkConnection() async {
-    bool result = await InternetConnectionChecker().hasConnection;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -13,7 +8,7 @@ class NavBar extends StatelessWidget {
         // padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 // color: Colors.blue,
 
                 ),
@@ -30,7 +25,7 @@ class NavBar extends StatelessWidget {
               Navigator.of(context).pushNamed('/home');
             },
           ),
-          Divider(),
+          const Divider(),
           ListTile(
             leading: Image.asset('assets/menu.png'),
             title: const Text('Меню'),
@@ -43,7 +38,7 @@ class NavBar extends StatelessWidget {
               // Navigator.pop(context);
             },
           ),
-          Divider(),
+          const Divider(),
           ListTile(
             leading: Image.asset('assets/place.png'),
             title: const Text('Мой город'),

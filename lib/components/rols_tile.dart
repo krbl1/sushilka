@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../models/foods.dart';
 
-class RollTile extends StatelessWidget {
+class FoodTile extends StatelessWidget {
   final Food food;
   final void Function()? onTap;
 
-  const RollTile({
+  const FoodTile({
     super.key,
     required this.food,
     required this.onTap,
@@ -14,6 +14,13 @@ class RollTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String _weightText = '${food.weight.toInt()} г  ${food.quontity} шт';
+
+    if (food.category == 'Вок' || food.category == 'Поке') {
+      _weightText = '${food.weight.toInt()} г  ';
+    } else if (food.category == 'Напитки') {
+      _weightText = '${food.weight.toInt()} мл  ';
+    }
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: GestureDetector(
@@ -28,6 +35,17 @@ class RollTile extends StatelessWidget {
                     food.imagePath,
                     height: 150,
                     width: 150,
+                    loadingBuilder: (BuildContext context, Widget child,
+                        ImageChunkEvent? loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return const CircularProgressIndicator(
+                        color: Colors.yellow,
+                      );
+                    },
+                    errorBuilder: (BuildContext context, Object exception,
+                        StackTrace? stackTrace) {
+                      return Image.asset('assets/networking.png');
+                    },
                   ),
                   SizedBox(
                     width: 20,
@@ -42,7 +60,7 @@ class RollTile extends StatelessWidget {
                       IconButton(
                           onPressed: onTap,
                           icon: const Icon(Icons.shopping_cart_outlined)),
-                      Text('${food.weight.toInt()} г  ${food.quontity} шт'),
+                      Text(_weightText),
                     ],
                   ),
                 ])),

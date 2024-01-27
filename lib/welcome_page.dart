@@ -23,7 +23,7 @@ class _WelcomePageState extends State<WelcomePage> {
             // const SizedBox(
             //   height: 25,
             // ),
-            Text(
+            const Text(
               'SUSHILKA',
               style: appBarTitle,
             ),
@@ -46,8 +46,10 @@ class _WelcomePageState extends State<WelcomePage> {
                 bool result = await InternetConnectionChecker().hasConnection;
                 // if (!mounted) return;
                 if (result) {
+                  // ignore: use_build_context_synchronously
                   Navigator.of(context).pushNamed('/home');
                 } else {
+                  // ignore: use_build_context_synchronously
                   showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
@@ -66,7 +68,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 }
               },
               child: Container(
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
                       color: Colors.yellow),
@@ -77,7 +79,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        Icon(Icons.arrow_forward_ios_outlined),
+                        const Icon(Icons.arrow_forward_ios_outlined),
                       ])),
             )
           ],
