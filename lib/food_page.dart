@@ -49,7 +49,7 @@ class _FoodPageState extends State<FoodPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          foodsMenuCategory[0].category,
+          categoryName.toString(),
           style: appBarTitle,
         ),
         backgroundColor: appBarColor,

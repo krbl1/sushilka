@@ -36,7 +36,7 @@ class MenuPage extends StatelessWidget {
                         const SizedBox(width: 25),
                         const Text(
                           'Суши',
-                          style: TextStyle(fontFamily: 'Verse', fontSize: 25),
+                          style: TextStyle(fontFamily: 'Ofont', fontSize: 25),
                         )
                       ],
                     ),
@@ -59,7 +59,7 @@ class MenuPage extends StatelessWidget {
                         const SizedBox(width: 25),
                         const Text(
                           'Роллы',
-                          style: TextStyle(fontFamily: 'Verse', fontSize: 25),
+                          style: TextStyle(fontFamily: 'Ofont', fontSize: 25),
                         )
                       ],
                     ),
@@ -82,7 +82,7 @@ class MenuPage extends StatelessWidget {
                         const SizedBox(width: 25),
                         const Text(
                           'Сеты',
-                          style: TextStyle(fontFamily: 'Verse', fontSize: 25),
+                          style: TextStyle(fontFamily: 'Ofont', fontSize: 25),
                         )
                       ],
                     ),
@@ -105,7 +105,7 @@ class MenuPage extends StatelessWidget {
                         const SizedBox(width: 25),
                         const Text(
                           'Поке',
-                          style: TextStyle(fontFamily: 'Verse', fontSize: 25),
+                          style: TextStyle(fontFamily: 'Ofont', fontSize: 25),
                         )
                       ],
                     ),
@@ -128,7 +128,7 @@ class MenuPage extends StatelessWidget {
                         const SizedBox(width: 25),
                         const Text(
                           'WOK',
-                          style: TextStyle(fontFamily: 'Verse', fontSize: 25),
+                          style: TextStyle(fontFamily: 'Ofont', fontSize: 25),
                         )
                       ],
                     ),
@@ -151,7 +151,7 @@ class MenuPage extends StatelessWidget {
                         const SizedBox(width: 25),
                         const Text(
                           'Напитки',
-                          style: TextStyle(fontFamily: 'Verse', fontSize: 25),
+                          style: TextStyle(fontFamily: 'Ofont', fontSize: 25),
                         )
                       ],
                     ),

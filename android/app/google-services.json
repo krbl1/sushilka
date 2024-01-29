@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "44222883420",
+    "project_id": "sushi-f3dbc",
+    "storage_bucket": "sushi-f3dbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44222883420:android:f013cbd873138d2dbbe899",
+        "android_client_info": {
+          "package_name": "com.example.sush_roys"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi4fgC_91bGzmoLf3F0tPUIlu6wjsVkXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

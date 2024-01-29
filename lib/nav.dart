@@ -47,7 +47,7 @@ class NavBar extends StatelessWidget {
               // Update the state of the app
               // _onItemTapped(2);
               // Then close the drawer
-              Navigator.pop(context);
+              Navigator.of(context).pushNamed('/city');
             },
           ),
         ],

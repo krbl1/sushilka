@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sush_roys/food_details.dart';
 import 'package:sush_roys/nav.dart';
+import 'components/rols_tile.dart';
+import 'models/foods.dart';
+import 'models/shop.dart';
 import 'theme/app_bar_theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,9 +14,35 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+String textToFind = '';
+
 class _HomePageState extends State<HomePage> {
+  void navigateToDetails(int index, List<Food> findMenu) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => FoodDetail(
+                  food: findMenu[index],
+                )));
+  }
+
   @override
   Widget build(BuildContext context) {
+    final poke = [1, 2, 4, 5, 23];
+    final shop = context.read<Shop>();
+    final _foodsMenuCategory = shop.foodsMenu
+        .where((food) =>
+            food.name
+                .toString()
+                .toLowerCase()
+                .contains(textToFind.toLowerCase()) ||
+            food.description
+                .toString()
+                .toLowerCase()
+                .contains(textToFind.toLowerCase()))
+        .toList();
+    print(textToFind);
+    print(_foodsMenuCategory.length);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -62,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 15,
-                                fontFamily: "Verse"),
+                                fontFamily: "Ofont"),
                           ),
                           Row(
                               // crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 15,
-                                fontFamily: "Verse"),
+                                fontFamily: "Ofont"),
                           ),
                           // SizedBox(
                           //   height: 10,
@@ -146,18 +177,45 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: TextField(
-              decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  hintText: 'Найдите здесь...'),
-            ),
+                decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: 'Найдите здесь...'),
+                onSubmitted: (text) {
+                  setState(() {
+                    print("Введенный текст: $text");
+
+                    textToFind = text;
+                  });
+                },
+                onChanged: (text) {
+                  setState(() {
+                    textToFind = text;
+
+                    print("Введенный текст: $text");
+                  });
+                }),
           ),
           const SizedBox(
             height: 25,
           ),
+          Expanded(
+            child: ListView.separated(
+              itemBuilder: (context, index) {
+                return FoodTile(
+                  food: _foodsMenuCategory[index],
+                  onTap: () => navigateToDetails(index, _foodsMenuCategory),
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const Divider();
+              },
+              itemCount: _foodsMenuCategory.length,
+            ),
+          )
         ],
       ),
       drawer: NavBar(),

@@ -3,12 +3,18 @@ import 'package:provider/provider.dart';
 import 'package:sush_roys/models/shop.dart';
 import 'package:sush_roys/theme/app_bar_theme.dart';
 
+import 'food_details.dart';
 import 'models/foods.dart';
 import 'nav.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
+  @override
+  State<CartPage> createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
   void removeFromCart(Food food, BuildContext context) {
     final shop = context.read<Shop>();
     shop.removeFromCart(food);
@@ -16,7 +22,21 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void navigateToDetails(int index, List<Food> findMenu) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => FoodDetail(
+                    food: findMenu[index],
+                  )));
+    }
+
     return Consumer<Shop>(builder: (context, value, child) {
+      double totalPrice = 0;
+      for (int i = 0; i < value.cart.length; i++) {
+        totalPrice += value.cart[i].price;
+      }
+
       return Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -60,8 +80,11 @@ class CartPage extends StatelessWidget {
                       ),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
-                        onPressed: () => removeFromCart(food, context),
+                        onPressed: () => setState(() {
+                          removeFromCart(food, context);
+                        }),
                       ),
+                      onTap: () => navigateToDetails(index, value.cart),
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
@@ -75,10 +98,13 @@ class CartPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: Colors.yellow),
-                  child: const Row(
+                  child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Оформить заказ'),
+                        Text(
+                          'Оформить заказ на $totalPrice р',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         SizedBox(
                           width: 10,
                         ),

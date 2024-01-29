@@ -1,14 +1,24 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sush_roys/cart_page.dart';
-import 'package:sush_roys/food_page.dart';
-
-import 'package:sush_roys/models/shop.dart';
-import 'package:sush_roys/welcome_page.dart';
+import 'cart_page.dart';
+import 'city_select_page.dart';
+import 'firebase_options.dart';
+import 'food_page.dart';
+import 'models/shop.dart';
+import 'welcome_page.dart';
 import 'home_page.dart';
 import 'menu_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseFirestore.instance.settings = const Settings(
+    persistenceEnabled: true,
+  );
   runApp(
     ChangeNotifierProvider(
       create: (context) => Shop(),
@@ -31,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/menu': (context) => const MenuPage(),
         '/food_page': (context) => const FoodPage(),
         '/cart': (context) => const CartPage(),
+        '/city': (context) => CitySelectionPage(),
       },
       // theme: ,
     );

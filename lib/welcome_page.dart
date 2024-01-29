@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:provider/provider.dart';
 import 'package:sush_roys/theme/app_bar_theme.dart';
+import 'models/shop.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -13,6 +15,13 @@ class _WelcomePageState extends State<WelcomePage> {
   String connection = 'Вперёд';
   @override
   Widget build(BuildContext context) {
+    Shop shop = Provider.of<Shop>(context, listen: false);
+
+    // Вызываем fetchMenuData
+    Future<void> fetchData() async {
+      await shop.fetchMenuData();
+    }
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(25.0),

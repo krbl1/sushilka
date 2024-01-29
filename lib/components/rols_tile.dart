@@ -55,7 +55,7 @@ class FoodTile extends StatelessWidget {
                     children: [
                       Text(
                         food.name,
-                        style: TextStyle(fontFamily: 'Verse', fontSize: 15),
+                        style: TextStyle(fontFamily: 'Ofont', fontSize: 15),
                       ),
                       IconButton(
                           onPressed: onTap,

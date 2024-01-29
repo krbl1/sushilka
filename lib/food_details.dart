@@ -120,7 +120,7 @@ class _FoodDetailState extends State<FoodDetail> {
                 ),
                 Text(
                   widget.food.name,
-                  style: const TextStyle(fontFamily: 'Verse', fontSize: 30),
+                  style: const TextStyle(fontFamily: 'Ofont', fontSize: 30),
                 ),
                 Row(
                   children: [
