@@ -28,9 +28,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final poke = [1, 2, 4, 5, 23];
     final shop = context.read<Shop>();
-    final _foodsMenuCategory = shop.foodsMenu
+    final foodsMenuCategory = shop.foodsMenu
         .where((food) =>
             food.name
                 .toString()
@@ -41,8 +40,7 @@ class _HomePageState extends State<HomePage> {
                 .toLowerCase()
                 .contains(textToFind.toLowerCase()))
         .toList();
-    print(textToFind);
-    print(_foodsMenuCategory.length);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -167,9 +165,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-            ]
-                // Your itemBuilder code here
-                ),
+            ]),
           ),
           const SizedBox(
             height: 25,
@@ -206,14 +202,14 @@ class _HomePageState extends State<HomePage> {
             child: ListView.separated(
               itemBuilder: (context, index) {
                 return FoodTile(
-                  food: _foodsMenuCategory[index],
-                  onTap: () => navigateToDetails(index, _foodsMenuCategory),
+                  food: foodsMenuCategory[index],
+                  onTap: () => navigateToDetails(index, foodsMenuCategory),
                 );
               },
               separatorBuilder: (BuildContext context, int index) {
                 return const Divider();
               },
-              itemCount: _foodsMenuCategory.length,
+              itemCount: foodsMenuCategory.length,
             ),
           )
         ],

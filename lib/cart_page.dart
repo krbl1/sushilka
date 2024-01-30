@@ -93,28 +93,82 @@ class _CartPageState extends State<CartPage> {
             ),
             Padding(
               padding: const EdgeInsets.all(15.0),
-              child: Container(
-                  padding: const EdgeInsets.all(25),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: Colors.yellow),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Оформить заказ на $totalPrice р',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Icon(Icons.arrow_forward_ios_outlined),
-                      ])),
+              child: GestureDetector(
+                onTap: () => _showGetInfoDialog(context),
+                child: Container(
+                    padding: const EdgeInsets.all(25),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: Colors.yellow),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Оформить заказ на $totalPrice р',
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Icon(Icons.arrow_forward_ios_outlined),
+                        ])),
+              ),
             ),
           ],
         ),
         drawer: NavBar(),
       );
     });
+  }
+
+  void _showGetInfoDialog(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Оформление заказа'),
+          content: const SingleChildScrollView(
+            // shrinkWrap: true,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(labelText: 'Имя'),
+                ),
+                TextField(
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(labelText: 'Номер'),
+                ),
+                TextField(
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(labelText: 'Адрсес'),
+                ),
+                TextField(
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(labelText: 'Комменатрий к закзу'),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Назад'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Оформить'),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
