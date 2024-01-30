@@ -139,7 +139,7 @@ class _CartPageState extends State<CartPage> {
                 ),
                 TextField(
                   textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.phone,
                   decoration: InputDecoration(labelText: 'Номер'),
                 ),
                 TextField(
