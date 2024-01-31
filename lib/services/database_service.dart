@@ -18,11 +18,11 @@ class DatabaseService {
 
         return foods;
       } else {
-        print('Коллекция "menu" не содержит документов');
+        // print('Коллекция "menu" не содержит документов');
         return [];
       }
     } catch (error) {
-      print('Ошибка при получении данных из Firestore: $error');
+      // print('Ошибка при получении данных из Firestore: $error');
       return [];
     }
   }

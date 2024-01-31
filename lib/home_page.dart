@@ -182,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                     hintText: 'Найдите здесь...'),
                 onSubmitted: (text) {
                   setState(() {
-                    print("Введенный текст: $text");
+                    // print("Введенный текст: $text");
 
                     textToFind = text;
                   });
@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                   setState(() {
                     textToFind = text;
 
-                    print("Введенный текст: $text");
+                    // print("Введенный текст: $text");
                   });
                 }),
           ),

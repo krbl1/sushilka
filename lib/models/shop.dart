@@ -14,7 +14,7 @@ class Shop extends ChangeNotifier {
   }
 
   Future<void> fetchMenuData() async {
-    print('chuchu');
+    // print('chuchu');
     _foodsMenu = await _databaseService.fetchMenuData();
     notifyListeners();
   }
