@@ -3,9 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:sush_roys/models/shop.dart';
 import 'package:sush_roys/theme/app_bar_theme.dart';
 
-import 'food_details.dart';
-import 'models/foods.dart';
-import 'nav.dart';
+import 'food_details_page.dart';
+import '../models/foods.dart';
+import '../nav.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});

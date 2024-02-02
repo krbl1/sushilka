@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:provider/provider.dart';
 import 'package:sush_roys/theme/app_bar_theme.dart';
-import 'models/shop.dart';
+import '../models/shop.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});

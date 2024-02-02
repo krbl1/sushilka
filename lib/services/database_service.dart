@@ -12,7 +12,7 @@ class DatabaseService {
 
       if (querySnapshot.docs.isNotEmpty) {
         List<Food> foods = querySnapshot.docs.map((doc) {
-          Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+          Map<String, dynamic> data = doc.data();
           return Food.fromJson(data);
         }).toList();
 

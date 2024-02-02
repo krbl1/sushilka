@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sush_roys/components/rols_tile.dart';
-import 'package:sush_roys/food_details.dart';
+import 'package:sush_roys/pages/food_details_page.dart';
 import 'package:sush_roys/models/shop.dart';
 import 'package:sush_roys/nav.dart';
-import 'theme/app_bar_theme.dart';
+import '../theme/app_bar_theme.dart';
+import '../widgets/cart_button.dart';
 
 class FoodPage extends StatefulWidget {
   const FoodPage({super.key});
@@ -53,10 +54,8 @@ class _FoodPageState extends State<FoodPage> {
           style: appBarTitle,
         ),
         backgroundColor: appBarColor,
-        actions: [
-          IconButton(
-              onPressed: () => Navigator.of(context).pushNamed('/cart'),
-              icon: const Icon(Icons.shopping_cart)),
+        actions: const [
+          CartButtonWidget(),
         ],
       ),
       body: ListView.separated(

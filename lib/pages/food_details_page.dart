@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'models/foods.dart';
-import 'models/shop.dart';
-import 'nav.dart';
+import '../models/foods.dart';
+import '../models/shop.dart';
+import '../nav.dart';
+import '../widgets/cart_button.dart';
 
 class FoodDetail extends StatefulWidget {
   final Food food;
@@ -87,10 +88,8 @@ class _FoodDetailState extends State<FoodDetail> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: Colors.grey[900],
-        actions: [
-          IconButton(
-              onPressed: () => Navigator.of(context).pushNamed('/cart'),
-              icon: const Icon(Icons.shopping_cart)),
+        actions: const [
+          CartButtonWidget(),
         ],
       ),
       body: Column(
