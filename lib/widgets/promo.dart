@@ -24,14 +24,10 @@ class PromoWidget extends StatelessWidget {
           horizontal: 20,
         ),
         padding: const EdgeInsets.all(15),
-        // child: Text('data'),
-
         child: Row(
-          // mainAxisAlignment: MainAxisAlignment,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
@@ -39,13 +35,10 @@ class PromoWidget extends StatelessWidget {
                   style: const TextStyle(
                       color: Colors.black, fontSize: 15, fontFamily: "Ofont"),
                 ),
-                const Row(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('Перейти'),
-                      Icon(Icons.chevron_right_sharp),
-                    ]),
+                const Row(children: [
+                  Text('Перейти'),
+                  Icon(Icons.chevron_right_sharp),
+                ]),
               ],
             ),
             const SizedBox(width: 50),

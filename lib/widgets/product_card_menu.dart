@@ -1,13 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  final String productName;
-  final String pathToPhoto;
+  // final String productName;
+  // final String pathToPhoto;
+  final ProductCardInfo data;
 
   const ProductCard({
     Key? key,
-    required this.productName,
-    required this.pathToPhoto,
+    required this.data,
   }) : super(key: key);
 
   @override
@@ -18,14 +19,14 @@ class ProductCard extends StatelessWidget {
           child: InkWell(
             onTap: () {
               Navigator.of(context)
-                  .pushNamed('/food_page', arguments: productName);
+                  .pushNamed('/food_page', arguments: data.productName);
             },
             child: Row(
               children: [
-                Image.asset(pathToPhoto),
+                Image.asset(data.pathToPhoto),
                 const SizedBox(width: 25),
                 Text(
-                  productName,
+                  data.productName,
                   style: const TextStyle(fontFamily: 'Ofont', fontSize: 25),
                 )
               ],
@@ -35,4 +36,14 @@ class ProductCard extends StatelessWidget {
       ),
     );
   }
+}
+
+class ProductCardInfo {
+  final String productName;
+  final String pathToPhoto;
+
+  ProductCardInfo({
+    required this.productName,
+    required this.pathToPhoto,
+  });
 }

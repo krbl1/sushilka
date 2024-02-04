@@ -5,7 +5,16 @@ import 'package:sush_roys/nav.dart';
 
 import '../theme/app_bar_theme.dart';
 import '../widgets/cart_button.dart';
-import '../widgets/product_card.dart';
+import '../widgets/product_card_menu.dart';
+
+List<ProductCardInfo> productList = [
+  ProductCardInfo(productName: 'Суши', pathToPhoto: 'assets/nigiri.png'),
+  ProductCardInfo(productName: 'Роллы', pathToPhoto: 'assets/uramaki.png'),
+  ProductCardInfo(productName: 'Сеты', pathToPhoto: 'assets/sushi.png'),
+  ProductCardInfo(productName: 'Поке', pathToPhoto: 'assets/poke.png'),
+  ProductCardInfo(productName: 'Вок', pathToPhoto: 'assets/food.png'),
+  ProductCardInfo(productName: 'Напитки', pathToPhoto: 'assets/lemonade.png'),
+];
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -20,42 +29,12 @@ class MenuPage extends StatelessWidget {
           CartButtonWidget(),
         ],
       ),
-      drawer: NavBar(),
-      body: const Center(
+      drawer: const NavBar(),
+      body: Center(
           child: Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
-          children: <Widget>[
-            ProductCard(
-              productName: 'Суши',
-              pathToPhoto: 'assets/nigiri.png',
-            ),
-            Divider(),
-            ProductCard(
-              productName: 'Роллы',
-              pathToPhoto: 'assets/uramaki.png',
-            ),
-            Divider(),
-            ProductCard(
-              productName: 'Сеты',
-              pathToPhoto: 'assets/sushi.png',
-            ),
-            Divider(),
-            ProductCard(
-              productName: 'Поке',
-              pathToPhoto: 'assets/poke.png',
-            ),
-            Divider(),
-            ProductCard(
-              productName: 'Вок',
-              pathToPhoto: 'assets/food.png',
-            ),
-            Divider(),
-            ProductCard(
-              productName: 'Напитки',
-              pathToPhoto: 'assets/lemonade.png',
-            ),
-          ],
+          children: productList.map((data) => ProductCard(data: data)).toList(),
         ),
       )),
     );
